@@ -2,12 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    #puts "ORDER ", @order
-    #puts "LINE ITEMS ",@order.line_items
     @line_items = @order.line_items
-    #puts "HELLO ", @line_items[0].product
-
-
   end
 
   def create
@@ -16,6 +11,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+      UserMailer.order_receipt(order)
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
