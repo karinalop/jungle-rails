@@ -24,6 +24,18 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+      <div>
+      </div>
+
+     <p><%= link_to "See reviews", product_reviews_path(@product.id) %></p>
+     <% @reviews.each do |c| %>
+         <div>
+           <h4><%= c.description %>-<%= c.rating %></h4>
+           <p></p>
+         </div>
+       <% end %>
+
+
     </div>
 
   </article>

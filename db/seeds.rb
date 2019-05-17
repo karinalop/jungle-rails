@@ -116,7 +116,7 @@ cat3.products.create!({
   price: 3_052.00
 })
 
-cat3.products.create!({
+prod2 = cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -124,13 +124,21 @@ cat3.products.create!({
   price: 987.65
 })
 
-cat3.products.create!({
+prod1 = cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
 })
+
+user1 = User.create! name: 'karina', email: 'karina@gmail.com', password_digest: 'kar'
+user2 = User.create! name: 'anitha', email: 'anitha@gmail.com', password_digest: 'ana'
+
+r1 = Review.create! product: prod1, user: user1, description: 'My books are organized', rating: 5
+r2 = Review.create! product: prod1, user: user2, description: 'Very good!!', rating: 4
+r3 = Review.create! product: prod2, user: user1, description: 'My target didnt die', rating: 2
+r4 = Review.create! product: prod2, user: user2, description: 'So relaxing my chair', rating: 2
 
 
 puts "DONE!"
