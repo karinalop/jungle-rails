@@ -27,14 +27,14 @@
       <div>
       </div>
 
-     <p><%= link_to "See reviews", product_reviews_path(@product.id) %></p>
-     <% @reviews.each do |c| %>
-         <div>
-           <h4><%= c.description %>-<%= c.rating %></h4>
-           <p></p>
-         </div>
-       <% end %>
-
+      <div class="col-sm-8">
+         <dl class="dl-horizontal">
+           <dt> Reviews </dt>
+           <% @reviews.each do |c| %>
+           <dd><%= c.user.name %> : <%= c.description %> - <%= c.rating %></dd>
+           <% end %>
+         </dl>
+       </div>
 
     </div>
 
