@@ -1,9 +1,8 @@
 <section class="cart-show">
-
+  <% if enhanced_cart.length > 0 %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -15,6 +14,7 @@
         </tr>
       </thead>
       <tbody>
+
         <% enhanced_cart.each do |item| %>
           <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
         <% end %>
@@ -31,7 +31,6 @@
       </tfoot>
     </table>
   </div>
-
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -48,5 +47,10 @@
       <% end %>
     </div>
   </div>
+  <% else %>
+  <div class="panel panel-default items" >
+    <p>YOU HAVE NO PRODUCTS ON YOUR CART <%= link_to 'Home', :root %></p>
 
+  </div>
+  <% end %>
 </section>
