@@ -23,28 +23,34 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-        <%= form_for :review, url: product_reviews_path(@product) do |f| %>
-        <dl class="dl-horizontal">
-          <dt>Add a review:</dt>
-          <dd></dd>
-          <dt><%= f.label :rating %></dt>
-          <dd><%= f.select(:rating, [1,2,3,4,5])  %></dd>
-          <dt><%= f.label :description %></dt>
-          <dd><%= f.text_area :description %></dd>
-          <dt></dt>
-          <dd><%= f.submit("Create review") %></dd>
-        </dl>
+        <%if current_user%>
+          <%= form_for :review, url: product_reviews_path(@product) do |f| %>
+          <dl class="dl-horizontal">
+            <dt>Add a review:</dt>
+            <dd></dd>
+            <dt><%= f.label :rating %></dt>
+            <dd><%= f.select(:rating, [1,2,3,4,5])  %></dd>
+            <dt><%= f.label :description %></dt>
+            <dd><%= f.text_area :description %></dd>
+            <dt></dt>
+            <dd><%= f.submit("Create review") %></dd>
+          </dl>
+          <% end %>
         <% end %>
+
       </div>
 
       <div class="col-sm-8">
          <dl class="dl-horizontal">
            <dt> Reviews </dt>
            <% @reviews.each do |c| %>
-           <dd><%= c.user.name %> : <%= c.description %>
+           <dd><%= c.created_at.strftime("%c") %>  <%= c.user.name %> : <%= c.description %>
             <% c.rating.times do  %>
               <span class="glyphicon glyphicon-star text-danger"></span>
             <% end %>
+            <%if current_user == c.user%>
+            <%= button_to "delete", product_review_url(@product, c), :method => :delete %>
+            <%end%>
            </dd>
 
            <% end %>
