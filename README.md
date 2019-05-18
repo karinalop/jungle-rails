@@ -26,3 +26,15 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+
+##Screenshots
+
+!["Screenshot of Signup page"](https://github.com/karinalop/jungle-rails/blob/master/docs/signup_page.png)
+!["Screenshot of Login page"](https://github.com/karinalop/jungle-rails/blob/master/docs/login_page.png)
+!["Screenshot of products listing page"](https://github.com/karinalop/jungle-rails/blob/master/docs/products_listing_page.png)
+!["Screenshot of product listing showing Soldout products"](https://github.com/karinalop/jungle-rails/blob/master/docs/soldout_product.png)
+!["Screenshot Full Cart Page"](https://github.com/karinalop/jungle-rails/blob/master/docs/full_cart_page.png)
+!["Screenshot single product description and reviews page"](https://github.com/karinalop/jungle-rails/blob/master/docs/product_description_reviews_page.png)
+!["Screenshot Receipt page"](https://github.com/karinalop/jungle-rails/blob/master/docs/order_receipt_page.png)
+
