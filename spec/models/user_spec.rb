@@ -142,5 +142,17 @@ RSpec.describe User, type: :model do
       user = User.authenticate_with_credentials('  kar@gmail.com ', 'kar')
       expect(user).to eq user1
     end
+    it "should return true if user email includes capital letters" do
+      user1 = User.new(
+        name: 'kar',
+        email: 'kar@gmail.com',
+        password: 'kar',
+        password_confirmation: 'kar'
+      )
+      user1.save
+      user = User.authenticate_with_credentials('Kar@gmail.com', 'kar')
+
+      expect(user).to eq user1
+    end
   end
 end
